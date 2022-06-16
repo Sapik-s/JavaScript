@@ -21,7 +21,6 @@ const personaMovieDB = {
     privat: false
 };
 
-
 //Запись данных в объект с вызовом следующей функции после завершения
 function rememberMyFilms(callback) {
     for (let i = 0; i < 1; i++) {
@@ -80,3 +79,6 @@ showMyDB();
 
 alert('Спасибо за пройденный опрос!');
 console.log(personaMovieDB);
+
+let count = Object.keys(personaMovieDB).length;
+console.log(count);
