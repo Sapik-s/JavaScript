@@ -82,3 +82,29 @@ console.log(personaMovieDB);
 
 let count = Object.keys(personaMovieDB).length;
 console.log(count);
+
+
+const arr = [3, 2, 81, 'Что-то', 'Удалить'];
+
+const objectCopy = {
+    Name: 'Alexsadr',
+    Age: '21',
+    child: {
+        Name: '',
+        Age: ''
+    }
+};
+
+const copyArr = [...arr, 'Добавил при копировании', 222];
+
+const copyObj = {...objectCopy};
+
+copyObj.child.Name = 'Dima';
+copyObj.child.Age = 50;
+
+console.log(objectCopy);
+
+delete copyArr[4];
+console.log(copyArr);
+
+console.log(copyObj);
