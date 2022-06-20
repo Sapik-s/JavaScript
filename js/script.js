@@ -6,7 +6,7 @@ const personaMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    privat: true,
+    privat: false,
     start: function () {
         personaMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
     
@@ -49,28 +49,23 @@ const personaMovieDB = {
     },
     //Выбор кол-ва жанров/запись жанров в массив
     writeYourGenres: function () {
-        let numberOfGenres = prompt('Введите количество любимых жанров', '');
-
+        
+        let numberOfGenres;
         for (let i = 1; i <= numberOfGenres; i++) {
+            numberOfGenres = prompt(`Введите количество любимых жанров ${i}`);
 
             if(numberOfGenres == null && numberOfGenres == '') {
-                alert('Такое дейтсвие невозможно, попробуйте снова');
+                alert('Такое действие невозможно, попробуйте снова');
                 i--;
                 
             } else {
-                
+                personaMovieDB.genres[i - 1] = numberOfGenres;
             }
         }
         personaMovieDB.genres.forEach((item, i) => {
             console.log(`Ваш любимый жанр под номером ${i + 1} - это ${item}`);
         });
     },
-    /////---------------------------------------
-    ////
-    ////
-    ///   Проверить и переделать, устанавливать другую приватность через [] = true
-    ///
-    ///--------------------------------------
     //Проверка является ли объект приватным
     showMyDB: function () {
         if (personaMovieDB.privat == false) {
@@ -80,10 +75,10 @@ const personaMovieDB = {
     },
     //Инверсия приватности
     toggleVisibleMyDB: () =>{
-        if(personaMovieDB.showMyDB == false){
-            personaMovieDB.showMyDB.privat = true;
-        } else {
+        if(personaMovieDB.showMyDB.privat){
             personaMovieDB.showMyDB.privat = false;
+        } else {
+            personaMovieDB.showMyDB.privat = true;
         }
     }
 };
@@ -103,7 +98,7 @@ console.log(count);
 const arr = [3, 2, 81, 'Что-то', 'Удалить'];
 
 const objectCopy = {
-    Name: 'Alexsadr',
+    Name: 'Ivan',
     Age: '21',
     child: {
         Name: '',
